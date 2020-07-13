@@ -4,7 +4,7 @@ class Node:
     Stores two pieces of data:
     1. The Value
     2. The Next Node
-​
+
     Methods/Behavior/Operations:
     1. Get value
     2. Set value
@@ -33,7 +33,7 @@ class LinkedList:
     Data:
     1. A reference to the head Node
     2. A reference to the tail Node
-​
+
     Behavior/Methods:
     1. Add To Tail
     2. Prepend (Add a new node and point that Node's next_node at the old Head; update Head pointer)
