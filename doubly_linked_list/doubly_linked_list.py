@@ -27,6 +27,16 @@ class DoublyLinkedList:
     the old head node's previous pointer accordingly.
     """
     def add_to_head(self, value):
+        # Create instance of ListNode with Value
+        # Increment the DLL length attribute
+
+        # if DLL is empty
+            # set head and tail to the new node instance
+
+        # if DLL is not empty
+            # Set new node's next to current head
+            # set head's prev to new node
+            # set head to the new node
         pass
         
     """
@@ -35,6 +45,17 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_head(self):
+        # store the value of the head
+        # decrement the length of the DLL
+        # delete the head
+            # if head.next is not None
+                # set head.next's prev to None
+                # set gead to head.next
+            # else (if head.next is None)
+                # set head to None
+                # set tail to None
+        #return the value
+
         pass
             
     """
@@ -43,6 +64,16 @@ class DoublyLinkedList:
     the old tail node's next pointer accordingly.
     """
     def add_to_tail(self, value):
+        # Create instance of ListNode with Value
+        # Increment the DLL length attribute
+
+        # if DLL is empty
+            # set head and tail to the new node instance
+
+        # if DLL is not empty
+            # Set new node's prev to current tail
+            # set tail's next to new node
+            # set tail to the new node
         pass
             
     """
@@ -51,6 +82,16 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_tail(self):
+        # store the value of the tail
+        # decrement the length of the DLL
+        # delete the tail
+            # if tail.prev is not None
+                # set tail.prev's next to None
+                # set tail to tail.prev
+            # else (if tail.prev is None)
+                # set head to None
+                # set tail to None
+        #return the value
         pass
             
     """
