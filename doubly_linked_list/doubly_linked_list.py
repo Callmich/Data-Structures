@@ -22,7 +22,7 @@ class ListNode:
         # if self.next == None 
             # set prev.next to none
             # set self.prev to None
-        elif (self.previous) and (self.next == None):
+        elif (self.prev) and (self.next == None):
             self.prev.next = None
             self.prev = None
         # if self.prev & self.next
@@ -55,16 +55,22 @@ class DoublyLinkedList:
     """
     def add_to_head(self, value):
         # Create instance of ListNode with Value
+        lNode = ListNode(value)
         # Increment the DLL length attribute
-
+        self.length += 1
         # if DLL is empty
             # set head and tail to the new node instance
-
+        if self.length == 1:
+            self.head = lNode
+            self.tail = lNode
         # if DLL is not empty
             # Set new node's next to current head
             # set head's prev to new node
             # set head to the new node
-        pass
+        else:
+            lNode.next = self.head
+            self.head.prev = lNode
+            self.head = lNode
         
     """
     Removes the List's current head node, making the
