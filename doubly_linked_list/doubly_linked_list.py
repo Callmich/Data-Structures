@@ -9,26 +9,29 @@ class ListNode:
         self.next = next
     
     def __del__(self):
-        
+        # if both self.prev and self.next are none
+            # nothing should happen and instead will be handled in the DLL to adjust head & Tail
+        if (self.next == None) and (self.prev == None):
+            pass
         # if self.prev == None 
             # set next.prev to none
             # set self.next to none
-        if self.prev == None:
-            next.prev = None
-            self.next = None
+        elif (self.next) and (self.prev == None):
+                self.next.prev = None
+                self.next = None
         # if self.next == None 
             # set prev.next to none
             # set self.prev to None
-        elif self.next == None:
-            prev.next = None
+        elif (self.previous) and (self.next == None):
+            self.prev.next = None
             self.prev = None
         # if self.prev & self.next
             # set prev.next to next
             # set next.prev to prev
             # set the self.prev and next to none
         else:
-            prev.next = self.next
-            next.prev = self.prev
+            self.prev.next = self.next
+            self.next.prev = self.prev
             self.prev = None
             self.next = None
             
