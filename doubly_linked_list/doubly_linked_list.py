@@ -99,6 +99,17 @@ class DoublyLinkedList:
     List and inserts it as the new head node of the List.
     """
     def move_to_front(self, node):
+        # set variable for current node
+        # set variable for prev node
+        # set variable for next node
+        # set variable for head
+
+        # change prev node's Next to next node
+        # change next nodes's Prev to prev Node
+        # change curent node's prev to None
+        # change curent node's next to head
+        # change head's prev to current node
+        # change head to current node
         pass
         
     """
@@ -106,6 +117,17 @@ class DoublyLinkedList:
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
+        # set variable for current node
+        # set variable for prev node
+        # set variable for next node
+        # set variable for tail
+
+        # change prev node's Next to next node
+        # change next nodes's Prev to prev Node
+        # change curent node's next to None
+        # change curent node's prev to tail
+        # change tail's next to current node
+        # change tail to current node
         pass
 
     """
