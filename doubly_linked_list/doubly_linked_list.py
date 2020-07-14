@@ -79,15 +79,25 @@ class DoublyLinkedList:
     """
     def remove_from_head(self):
         # store the value of the head
+        curVal = self.head.value
         # decrement the length of the DLL
+        self.length -= 1
         # delete the head
-            # if head.next is not None
-                # set head.next's prev to None
-                # set gead to head.next
-            # else (if head.next is None)
-                # set head to None
-                # set tail to None
+        # if head.next is not None
+            # set head.next's prev to None
+            # set head to head.next
+        if self.head.next != None:
+            self.head = self.head.next
+            self.__del__()
+        # else (if head.next is None)
+            # set head to None
+            # set tail to None
+        else:
+            self.head.__del__()
+            self.head = None
+            self.tail = None
         #return the value
+        return curVal
 
         pass
             
@@ -98,16 +108,22 @@ class DoublyLinkedList:
     """
     def add_to_tail(self, value):
         # Create instance of ListNode with Value
+        lNode = ListNode(value)
         # Increment the DLL length attribute
-
+        self.length += 1
         # if DLL is empty
             # set head and tail to the new node instance
-
+        if self.length == 1:
+            self.head = lNode
+            self.tail = lNode
         # if DLL is not empty
             # Set new node's prev to current tail
             # set tail's next to new node
             # set tail to the new node
-        pass
+        else:
+            lNode.prev = self.tail
+            self.tail.next = lNode
+            self.tail = lNode
             
     """
     Removes the List's current tail node, making the 
@@ -116,16 +132,25 @@ class DoublyLinkedList:
     """
     def remove_from_tail(self):
         # store the value of the tail
+        curVal = self.tail.value
         # decrement the length of the DLL
+        self.length -= 1
         # delete the tail
-            # if tail.prev is not None
-                # set tail.prev's next to None
-                # set tail to tail.prev
-            # else (if tail.prev is None)
+        # if tail.prev is not None
+            # set tail.prev's next to None
+            # set tail to tail.prev
+        if self.tail.prev != None:
+            self.tail = self.tail.prev
+            self.__del__()
+        # else (if tail.prev is None)
                 # set head to None
                 # set tail to None
+        else:
+            self.tail.__del__()
+            self.head = None
+            self.tail = None
         #return the value
-        pass
+        return curVal
             
     """
     Removes the input node from its current spot in the 
