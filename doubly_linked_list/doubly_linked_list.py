@@ -7,6 +7,30 @@ class ListNode:
         self.prev = prev
         self.value = value
         self.next = next
+    
+    def __del__(self):
+        
+        # if self.prev == None 
+            # set next.prev to none
+            # set self.next to none
+        if self.prev == None:
+            next.prev = None
+            self.next = None
+        # if self.next == None 
+            # set prev.next to none
+            # set self.prev to None
+        elif self.next == None:
+            prev.next = None
+            self.prev = None
+        # if self.prev & self.next
+            # set prev.next to next
+            # set next.prev to prev
+            # set the self.prev and next to none
+        else:
+            prev.next = self.next
+            next.prev = self.prev
+            self.prev = None
+            self.next = None
             
 """
 Our doubly-linked list class. It holds references to 
@@ -135,6 +159,11 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
+        # need current node
+        # need next node
+        # need prev node
+        # need tail
+        # need head
         pass
 
     """
