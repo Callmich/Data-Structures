@@ -18,33 +18,74 @@ class BSTNode:
     # Insert the given value into the tree
     def insert(self, value):
         # Case 1: value is < self.value
-        if value < self.value
+        if value < self.value:
             # if there is no left child insert value here
             if self.left is None:
                 self.left = BSTNode(value)
             else:
                 #repeat the process on left subtree 
                 self.left.insert(value)
+        # Case 2: value is > or =  self.value
         elif value >= self.value:
             if self.right is None:
                 self.right = BSTNode(value)
             else:
                 self.right.insert(value)
                 
-
-        # Case 2: value is > or =  self.value
-
-    # Return True if the tree contains the value
-    # False if it does not
     def contains(self, target):
-        pass
+        # Case 1: if self.value is equal to target
+        if self.value == target:
+            return True
+        # Case 2: target is less than self.value
+        elif target < self.value:
+            # if self.lef is None, it isnt in tree
+            if self.left is None:
+                return False
+            # if self.left is there then run recursion
+            else:
+                return self.left.contains(target)
+        # Case 3: otherwise
+        else:
+            if self.right is None:
+                return False
+            else:
+                return self.right.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        #dont need to move left
+        maxVal = self.value
+        current = self
+
+        while current is not None:
+            maxVal = current.value
+            current = current.right
+        
+        return maxVal
+        
+
+        # current = self.right
+        # while current is not None:
+        #     if self.right.value:
+        #         current = current.right
+        #     else:
+        #         return self.value
+
+        # current = self
+        # nxt = self.right
+        # val = 0
+
+        # while current is not None:
+        #     val = current.value
+        #     current = nxt
+        # return val
+        
+        #itterate with a loop
+        
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
+        #recursive
         pass
 
     # Part 2 -----------------------
