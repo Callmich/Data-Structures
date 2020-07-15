@@ -9,6 +9,7 @@ class ListNode:
         self.next = next
     
     def __del__(self):
+        self.value = None
         # if both self.prev and self.next are none
             # nothing should happen and instead will be handled in the DLL to adjust head & Tail
         if (self.next == None) and (self.prev == None):
@@ -157,48 +158,40 @@ class DoublyLinkedList:
     List and inserts it as the new head node of the List.
     """
     def move_to_front(self, node):
-        # set variable for current node
-        # set variable for prev node
-        # set variable for next node
-        # set variable for head
-
-        # change prev node's Next to next node
-        # change next nodes's Prev to prev Node
-        # change curent node's prev to None
-        # change curent node's next to head
-        # change head's prev to current node
-        # change head to current node
-        pass
+        
+        self.length -= 1
+        self.add_to_head(node.value)
+        node.__del__()
         
     """
     Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
-        # set variable for current node
-        # set variable for prev node
-        # set variable for next node
-        # set variable for tail
-
-        # change prev node's Next to next node
-        # change next nodes's Prev to prev Node
-        # change curent node's next to None
-        # change curent node's prev to tail
-        # change tail's next to current node
-        # change tail to current node
-        pass
+   
+        self.length -= 1
+        self.add_to_tail(node.value)
+        node.__del__()
+        
+        
 
     """
     Deletes the input node from the List, preserving the 
     order of the other elements of the List.
     """
     def delete(self, node):
-        # need current node
-        # need next node
-        # need prev node
-        # need tail
-        # need head
-        pass
+        if self.head.next is None:
+            self.head = None
+            self.tail = None
+        else:
+            if node is self.head:
+                self.head = node.next
+            elif node is self.tail:
+                self.tail = node.prev
+            
+            node.__del__()
+            
+        self.length -= 1
 
     """
     Finds and returns the maximum value of all the nodes 
