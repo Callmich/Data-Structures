@@ -53,14 +53,14 @@ class BSTNode:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        
+        # set a max val to be rewritten and a current for the loop
         maxVal = self.value
         current = self
-
+        #set up loop to rewrite max and continue loop
         while current is not None:
             maxVal = current.value
             current = current.right
-        
+        # return final max
         return maxVal
         
     def for_each(self, fn):
