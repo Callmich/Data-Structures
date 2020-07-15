@@ -158,21 +158,28 @@ class DoublyLinkedList:
     List and inserts it as the new head node of the List.
     """
     def move_to_front(self, node):
-        
-        self.length -= 1
-        self.add_to_head(node.value)
-        node.__del__()
+        if self.head.next is not None and node is not self.head:
+            if node is self.tail:
+                self.tail = self.tail.prev
+            self.length -= 1
+            self.add_to_head(node.value)
+            node.__del__()
+        else:
+            pass
         
     """
     Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
-   
-        self.length -= 1
-        self.add_to_tail(node.value)
-        node.__del__()
-        
+        if self.head.next is not None and node is not self.tail:
+            if node is self.head:
+                self.head = self.head.next
+            self.add_to_tail(node.value)
+            node.__del__()
+            self.length -= 1  
+        else:
+            pass
         
 
     """
@@ -190,7 +197,7 @@ class DoublyLinkedList:
                 self.tail = node.prev
             
             node.__del__()
-            
+
         self.length -= 1
 
     """
@@ -198,4 +205,11 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
-        pass
+        current = self.head.next
+        max_val = self.head.value
+        while current is not None:
+            if current.value > max_val:
+                max_val = current.value
+            current = current.next
+
+        return max_val
