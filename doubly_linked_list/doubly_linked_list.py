@@ -158,12 +158,16 @@ class DoublyLinkedList:
     List and inserts it as the new head node of the List.
     """
     def move_to_front(self, node):
+        #confirm that the node is not already at the head or that it is not the only item
         if self.head.next is not None and node is not self.head:
+            # adjust tail if node is the tail
             if node is self.tail:
                 self.tail = self.tail.prev
+            # adjust length add node to head and delete node
             self.length -= 1
             self.add_to_head(node.value)
             node.__del__()
+        # if node is head or there is only one item good to pass
         else:
             pass
         
@@ -172,12 +176,16 @@ class DoublyLinkedList:
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
+        #confirm that the node is not already at the tail or that it is not the only item
         if self.head.next is not None and node is not self.tail:
+            #adjust head if node is head
             if node is self.head:
                 self.head = self.head.next
+            # adjust length add node to tail and delete node
             self.add_to_tail(node.value)
             node.__del__()
             self.length -= 1  
+        # if node is tail or there is only one item good to pass
         else:
             pass
         
@@ -187,17 +195,20 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
+        # if only one node del via adjusting head and tail
         if self.head.next is None:
             self.head = None
             self.tail = None
         else:
+            #if node is head adjust head
             if node is self.head:
                 self.head = node.next
+            # if node is tail adjust tail
             elif node is self.tail:
                 self.tail = node.prev
-            
+            # use del function
             node.__del__()
-
+        # adjust length
         self.length -= 1
 
     """
@@ -205,11 +216,15 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
+        #set value and current node
         current = self.head.next
-        max_val = self.head.value
+        maxVal = self.head.value
+        #set while loop to go through the DLL
         while current is not None:
-            if current.value > max_val:
-                max_val = current.value
+            #check if new value is larger than current and if so replace
+            if current.value > maxVal:
+                maxVal = current.value
+            #reset current to move the loop
             current = current.next
-
-        return max_val
+        #return largest value
+        return maxVal
