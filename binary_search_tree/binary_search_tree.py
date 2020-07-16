@@ -12,6 +12,7 @@ This part of the project comprises two days:
 from stack import Stack
 from queue import Queue
 
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -93,56 +94,75 @@ class BSTNode:
             return
         # check if we can move left
         if self.left is not None:
-            self.left.in_order_print()
+            self.left.in_order_print(self)
         
         # visit node by printing value
         print(self.value)
 
         if self.right is not None:
-            self.right.in_order_print()
+            self.right.in_order_print(self)
         
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
-        # use a queue to form a "line"
-        # for the nodes to get in
+        # use a queue to form a "line" for the nodes to get in
+        line = Queue()
 
         # start by placing the root in the queue
+        line.enqueue(node)
+        
         # need a while loop to iterate
+        while line.__len__() > 0:
         # while length of queue is greater than 0
             # dequeue item from from of queue
+            val = line.dequeue()
+            val
             # print item
+            print(val.value)
 
             # place current item's left node in queue if not none
+            if val.left:
+                line.enqueue(val.left)
             # place current item's right node in queue if not none
+            if val.right:
+                line.enqueue(val.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
         # init an empty stack
+        line = Stack()
         # push the root node onto the stack
+        line.push(node)
 
         # need a while loop to manage out itteration
         # if stack is not empty enter the while loop
+        while line.__len__() > 0:
             # pop top item off stack
+            val = line.pop()
+            val
+            
             # print that items's value
+            print(val.value)
 
             # if right subtree 
                 # push right item onto stack
+            if val.right:
+                line.push(val.right)
             # if left subtree
                 #  push left item onto stack
+            if val.left:
+                line.push(val.left)
 
 
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
-    def pre_order_dft(self, node):
-        pass
+    # def pre_order_dft(self, node):
+    #     pass
 
-    # Print Post-order recursive DFT
-    def post_order_dft(self, node):
-        pass
+    # # Print Post-order recursive DFT
+    # def post_order_dft(self, node):
+    #     pass
