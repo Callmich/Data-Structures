@@ -13,7 +13,7 @@ class ListNode:
         # if both self.prev and self.next are none
             # nothing should happen and instead will be handled in the DLL to adjust head & Tail
         if (self.next == None) and (self.prev == None):
-            pass
+            return
         # if self.prev == None 
             # set next.prev to none
             # set self.next to none
@@ -89,7 +89,7 @@ class DoublyLinkedList:
             # set head to head.next
         if self.head.next != None:
             self.head = self.head.next
-            self.__del__()
+            self.head.__del__()
         # else (if head.next is None)
             # set head to None
             # set tail to None
@@ -100,7 +100,6 @@ class DoublyLinkedList:
         #return the value
         return curVal
 
-        pass
             
     """
     Wraps the given value in a ListNode and inserts it 
@@ -169,7 +168,7 @@ class DoublyLinkedList:
             node.__del__()
         # if node is head or there is only one item good to pass
         else:
-            pass
+            return
         
     """
     Removes the input node from its current spot in the 
@@ -187,7 +186,7 @@ class DoublyLinkedList:
             self.length -= 1  
         # if node is tail or there is only one item good to pass
         else:
-            pass
+            return
         
 
     """
@@ -217,10 +216,10 @@ class DoublyLinkedList:
     """
     def get_max(self):
         #set value and current node
-        current = self.head.next
         maxVal = self.head.value
+        current = self.head
         #set while loop to go through the DLL
-        while current is not None:
+        while current != None:
             #check if new value is larger than current and if so replace
             if current.value > maxVal:
                 maxVal = current.value
