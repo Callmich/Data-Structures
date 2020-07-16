@@ -105,10 +105,11 @@ class BSTNode:
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+    
+    
     def bft_print(self, node):
         # use a queue to form a "line" for the nodes to get in
         line = Queue()
-
         # start by placing the root in the queue
         line.enqueue(node)
         
@@ -117,7 +118,6 @@ class BSTNode:
         # while length of queue is greater than 0
             # dequeue item from from of queue
             val = line.dequeue()
-            val
             # print item
             print(val.value)
 
@@ -130,18 +130,18 @@ class BSTNode:
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
+    
     def dft_print(self, node):
         # init an empty stack
-        line = Stack()
+        line2 = Stack()
         # push the root node onto the stack
-        line.push(node)
+        line2.push(node)
 
         # need a while loop to manage out itteration
         # if stack is not empty enter the while loop
-        while line.__len__() > 0:
+        while line2.__len__() > 0:
             # pop top item off stack
-            val = line.pop()
-            val
+            val = line2.pop()
             
             # print that items's value
             print(val.value)
@@ -149,20 +149,20 @@ class BSTNode:
             # if right subtree 
                 # push right item onto stack
             if val.right:
-                line.push(val.right)
+                line2.push(val.right)
             # if left subtree
                 #  push left item onto stack
             if val.left:
-                line.push(val.left)
+                line2.push(val.left)
 
 
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
-    # def pre_order_dft(self, node):
-    #     pass
+    def pre_order_dft(self, node):
+        pass
 
     # # Print Post-order recursive DFT
-    # def post_order_dft(self, node):
-    #     pass
+    def post_order_dft(self, node):
+        pass
