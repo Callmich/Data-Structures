@@ -17,20 +17,61 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
-
-    # Return True if the tree contains the value
-    # False if it does not
+        # Case 1: value is < self.value
+        if value < self.value:
+            # if there is no left child insert value here
+            if self.left is None:
+                self.left = BSTNode(value)
+            else:
+                #repeat the process on left subtree 
+                self.left.insert(value)
+        # Case 2: value is > or =  self.value
+        elif value >= self.value:
+            if self.right is None:
+                self.right = BSTNode(value)
+            else:
+                self.right.insert(value)
+                
     def contains(self, target):
-        pass
+        # Case 1: if self.value is equal to target
+        if self.value == target:
+            return True
+        # Case 2: target is less than self.value
+        elif target < self.value:
+            # if self.lef is None, it isnt in tree
+            if self.left is None:
+                return False
+            # if self.left is there then run recursion
+            else:
+                return self.left.contains(target)
+        # Case 3: otherwise
+        else:
+            if self.right is None:
+                return False
+            else:
+                return self.right.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
-
-    # Call the function `fn` on the value of each node
+        # set a max val to be rewritten and a current for the loop
+        maxVal = self.value
+        current = self
+        #set up loop to rewrite max and continue loop
+        while current is not None:
+            maxVal = current.value
+            current = current.right
+        # return final max
+        return maxVal
+        
     def for_each(self, fn):
-        pass
+        #Need to run fn on value of self
+        fn(self.value)
+        # Case 1: If there is a right run function on it.
+        if self.right:
+            self.right.for_each(fn)
+        # Case 2: If there is a left run function on it.
+        if self.left:
+            self.left.for_each(fn)
 
     # Part 2 -----------------------
 
