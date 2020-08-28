@@ -62,7 +62,7 @@ class LinkedList:
             self.tail.set_next(new_node)
             # set the list's tail reference to the new node
             self.tail = new_node
-
+    
     # New funct added in order to create new head
     def add_head(self, value):
         new_node = Node(value, None)
